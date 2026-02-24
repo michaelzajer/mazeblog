@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+
+const articles = [
+  {
+    slug: 'four-systems-no-single-truth',
+    series: 'Delivery Intelligence · Part 1',
+    title: 'Four Systems, No Single Truth',
+    desc: 'Why tech consultancies struggle to answer the simplest delivery question: are we on track, and what has it cost us?',
+    format: 'Article + Live Data Model',
+  },
+  {
+    slug: 'kickoff-deck-is-dead',
+    series: 'AI-Augmented Delivery',
+    title: 'The Kick-Off Deck is Dead',
+    desc: 'How an AI agent replaces the 40-slide PowerPoint that nobody reads — and gives your team an always-available project brain.',
+    format: 'Article + Agent Demo',
+    upcoming: true,
+  },
+  {
+    slug: 'delivery-dashboard-agent',
+    series: 'Delivery Intelligence · Part 2',
+    title: 'Building a Delivery Dashboard Agent',
+    desc: 'Connecting SOW, WBS, timesheets, and backlog data through an AI agent that surfaces the metrics that matter.',
+    format: 'Article + Agent Demo',
+    upcoming: true,
+  },
+];
+
+const demos = [
+  {
+    slug: 'delivery-data-model',
+    title: 'Unified Delivery Data Model',
+    desc: 'Interactive entity model showing how SOW deliverables, WBS elements, backlog items, and timesheets connect to produce earned value metrics.',
+    status: 'live',
+  },
+  {
+    slug: 'kickoff-agent',
+    title: 'Project Kick-Off Agent',
+    desc: 'An AI agent that replaces the traditional kick-off deck — team members can ask questions about the project instead of hunting through slides.',
+    status: 'coming',
+  },
+  {
+    slug: 'delivery-dashboard-agent',
+    title: 'Delivery Dashboard Agent',
+    desc: 'An agent that reconciles data across all four delivery systems and produces real-time delivery health metrics.',
+    status: 'coming',
+  },
+];
+---
+
+<BaseLayout title="Delivery">
+  <div class="index-container">
+    <div class="index-hero">
+      <h1>Delivery</h1>
+      <p>
+        Practical frameworks, data models, and working AI agents for tech consultancies
+        that want to know the truth about their delivery health.
+      </p>
+    </div>
+
+    <h2 class="section-heading">Articles</h2>
+    <div class="article-grid">
+      {articles.map((a) => (
+        <a
+          href={a.upcoming ? undefined : `${base}articles/${a.slug}/`}
+          class="article-card"
+          style={a.upcoming ? 'opacity: 0.5; pointer-events: none;' : ''}
+        >
+          <div class="article-card-series">{a.series}</div>
+          <div class="article-card-title">{a.title}{a.upcoming ? ' ↗' : ''}</div>
+          <div class="article-card-desc">{a.desc}</div>
+          <span class="article-card-tag">{a.upcoming ? 'Coming Soon' : a.format}</span>
+        </a>
+      ))}
+    </div>
+
+    <h2 class="section-heading" style="margin-top: 48px;">Demos</h2>
+    <div class="article-grid">
+      {demos.map((d) => (
+        <a
+          href={d.status === 'live' ? `${base}demos/${d.slug}/` : undefined}
+          class="article-card"
+          style={d.status !== 'live' ? 'opacity: 0.5; pointer-events: none;' : ''}
+        >
+          <div class="article-card-series">Interactive</div>
+          <div class="article-card-title">{d.title}</div>
+          <div class="article-card-desc">{d.desc}</div>
+          <span class="article-card-tag">{d.status === 'live' ? 'Live Demo' : 'Coming Soon'}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .section-heading {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+</style>

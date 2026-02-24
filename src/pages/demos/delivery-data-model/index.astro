@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DeliveryDataModel from '../../../components/DeliveryDataModel.jsx';
+---
+
+<BaseLayout title="Unified Delivery Data Model">
+  <div class="article-container">
+    <div class="article-meta">Delivery · Interactive Demo</div>
+    <h1 class="article-title">Unified Delivery Data Model</h1>
+    <p class="article-subtitle">
+      How SOW deliverables, WBS elements, backlog items, and timesheets connect
+      to produce earned value metrics. Click through the tabs to explore each dimension.
+    </p>
+  </div>
+
+  <div class="component-embed">
+    <div class="component-embed-inner">
+      <DeliveryDataModel client:load />
+    </div>
+  </div>
+</BaseLayout>

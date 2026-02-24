@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DeliveryDataModel from '../../../components/DeliveryDataModel.jsx';
+---
+
+<BaseLayout title="Four Systems, No Single Truth">
+  <article>
+    <div class="article-container">
+      <div class="article-meta">Delivery Intelligence · Part 1</div>
+      <h1 class="article-title">Four Systems, No Single Truth</h1>
+      <p class="article-subtitle">
+        Why tech consultancies struggle to answer the simplest delivery question:
+        are we on track, and what has it cost us?
+      </p>
+
+      <div class="article-body">
+        <h2>The question nobody can answer cleanly</h2>
+        <p>
+          Every tech consultancy operates with the same fundamental tension. The client
+          expects to know whether the engagement is on track — on time, on budget, delivering
+          what was promised. The delivery lead wants to know the same thing. And yet, in most
+          organisations, answering this question requires manually reconciling data from four
+          disconnected systems, each holding a piece of the truth but none telling the whole story.
+        </p>
+        <p>
+          The Statement of Work defines what was promised — milestones, deliverables, and the
+          commercial envelope. The Work Breakdown Structure captures the planned decomposition
+          and effort estimates. The timesheet system records where hours actually went. And Jira
+          or Azure DevOps tracks the real-time flow of work items as the team executes. These
+          systems were never designed to talk to each other, and the gaps between them are
+          precisely where delivery risk hides.
+        </p>
+
+        <h2>Why the gap exists</h2>
+        <p>
+          The root cause isn't laziness or bad tooling — it's that each system serves a
+          different audience with different priorities. The SOW serves the commercial relationship.
+          The WBS serves the planning function. Timesheets serve the finance and resourcing teams.
+          The backlog serves the delivery team. Each is optimised for its own purpose, and forcing
+          them into a single unified view has historically required more overhead than most
+          engagements can justify.
+        </p>
+        <p>
+          The result is predictable. Timesheets get coded to high-level phases rather than specific
+          deliverables. Work items in the backlog proliferate and evolve in ways that drift from the
+          original WBS. Milestones in the SOW are output-based — "deliver the data model" — while
+          the backlog is activity-based — "configure pipeline X". And the delivery lead ends up
+          relying on gut feel supplemented by whichever system they happen to trust most.
+        </p>
+
+        <h2>What it costs you</h2>
+        <p>
+          This isn't an abstract problem. When you can't trace actuals back to estimates at a
+          meaningful level, you lose the ability to detect overruns early. A deliverable that was
+          estimated at 200 hours might be consuming 300, but if timesheets are coded to the phase
+          level, you won't see it until the phase budget is exhausted — by which point you've lost
+          the ability to course-correct.
+        </p>
+        <p>
+          It also creates trust issues at steering committees. When the delivery lead reports
+          "we're 70% complete" but can't show the working behind that number, the client is left
+          to take it on faith. And faith erodes quickly when milestones start slipping.
+        </p>
+
+        <h2>A unified data model</h2>
+        <p>
+          The solution isn't to replace these systems — each serves its purpose well. The solution
+          is a lightweight mapping layer that translates between them, anchored on the unit that
+          matters most to the client relationship: the SOW deliverable.
+        </p>
+        <p>
+          Below is an interactive data model that shows how these six entities relate to each other,
+          what fields matter, how earned value metrics are derived, and the design principles that
+          make it practical rather than theoretical. Click through the tabs to explore each dimension.
+        </p>
+      </div>
+    </div>
+
+    <!-- Wide component embed -->
+    <div class="component-embed">
+      <div class="component-embed-inner">
+        <DeliveryDataModel client:load />
+      </div>
+    </div>
+
+    <div class="article-container">
+      <div class="article-body">
+        <h2>The minimum viable starting point</h2>
+        <p>
+          If your organisation can only implement two things, make it these: every Epic in the
+          backlog carries a deliverable_id linking it to the SOW, and every timesheet entry is
+          coded to a deliverable_id and an activity category. With just those two data points
+          consistently captured, you can calculate earned value, cost variance, and role mix
+          variance — which answers 80% of the questions a steering committee will ask.
+        </p>
+        <p>
+          In the next article in this series, we'll take this data model and build an AI agent
+          that can query across all four systems, reconcile the data, and produce a delivery
+          health dashboard — turning hours of manual reconciliation into a conversation.
+        </p>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
