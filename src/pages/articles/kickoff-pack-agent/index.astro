@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import KickoffAgent from '../../../components/KickoffAgent.jsx';
+---
+
+<BaseLayout title="Your Kick-Off Pack Is Already an AI Agent">
+  <article style="max-width: 740px; margin: 0 auto; padding: 2rem 1rem;">
+    <header style="margin-bottom: 2rem;">
+      <p style="color: #2E8B8B; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">
+        Practical AI Delivery
+      </p>
+      <h1 style="font-size: 2rem; line-height: 1.2; margin-bottom: 0.75rem; color: #1B3A5C;">
+        Your Kick-Off Pack Is Already an AI Agent. You Just Haven't Turned It On Yet.
+      </h1>
+      <p style="color: #666; font-size: 0.9rem;">
+        February 2026 &middot; 5 min read
+      </p>
+    </header>
+
+    <div class="article-content">
+      <p>
+        Every decent delivery lead I know has a kick-off pack template. It covers the basics: who the team is, who the client is, what problem we're solving, who's responsible for what, how the budget breaks down, and when things need to happen. It's the single document that forces you to think clearly about a project before you start spending money on it.
+      </p>
+
+      <p>
+        And if you've been doing this long enough, you also know what happens next. The pack gets presented at the kick-off meeting. Everyone nods. It gets saved to SharePoint. Then it slowly drifts out of date as scope shifts, team members rotate, and decisions get made in stand-ups rather than steering committees.
+      </p>
+
+      <p>
+        This isn't a failure of discipline. It's a failure of format. A kick-off pack is static by design — a snapshot of what we knew and agreed at day zero. The project, obviously, is not static. So the pack becomes a historical artefact rather than a working tool.
+      </p>
+
+      <p>
+        I want to suggest something that sounds more complicated than it actually is: turn your kick-off pack into an AI agent's system prompt. Not because it's a clever trick, but because it solves a real problem that every project team has — keeping context alive and accessible without requiring someone to maintain it.
+      </p>
+
+      <h2>What's actually in a kick-off pack</h2>
+
+      <p>
+        To make this concrete, I put together a kick-off pack for a fictional engagement: a consulting company delivering a customer onboarding data migration for an energy retailer with legacy system sprawl. The pack covers project overview, team structure and allocations, a RACI matrix, budget breakdown, a six-month milestone calendar, time allocation by role, risks and assumptions, and ways of working.
+      </p>
+
+      <p>
+        It's roughly what you'd expect for a $1.5M, six-month engagement with a team of six billable resources plus an account manager. Nothing exotic — just the kind of structured project information that every consulting team produces at the start of an engagement.
+      </p>
+
+      <p>
+        Here's the thing: that's already more structured context than most AI agents ever get. When people talk about building AI agents, they often start with the technology — which model, which framework, which orchestration layer. But the hard part of making an agent useful isn't the technology. It's giving it enough context to be genuinely helpful rather than generically helpful.
+      </p>
+
+      <p>A kick-off pack already contains exactly that context.</p>
+
+      <h2>Try it yourself</h2>
+
+      <p>
+        The agent below has the full kick-off pack loaded as its system context. In simulated mode, click any of the suggested prompts to see how it responds. Switch to live mode to ask it anything — it maintains conversation history so you can follow up.
+      </p>
+    </div>
+
+    <!-- Interactive agent component -->
+    <div style="margin: 2rem 0;">
+      <KickoffAgent client:load />
+    </div>
+
+    <div class="article-content">
+      <h2>The five-minute agent</h2>
+
+      <p>
+        Here's what it takes to turn a kick-off pack into a working project agent in either Copilot or Claude: open a new project (in Claude) or a custom GPT / Copilot agent. Paste the contents of your kick-off pack into the system instructions or project knowledge base. That's it. No code required.
+      </p>
+
+      <p>
+        What you now have is an AI assistant that knows your team, your client, your scope, your constraints, your budget, your timeline, and your RACI. When a team member asks "who's responsible for data quality sign-off?", it gives the right answer — not a generic one. When someone drafts a status report, the agent knows which milestones matter this month and what the risk register says.
+      </p>
+
+      <h2>What this gives you on day one</h2>
+
+      <p>
+        The immediate benefits are practical rather than transformative, which is exactly why they stick. A new team member joining mid-project can ask the agent to brief them instead of waiting for someone to find time for a handover. A data consultant can check whether something is in scope before raising it in a sprint ceremony. The delivery lead can ask the agent to draft a fortnightly status update that's pre-populated with the right milestone context, risk framing, and stakeholder language.
+      </p>
+
+      <p>
+        None of these things are impossible without an agent. They're just slow, and they rely on the delivery lead being available to answer questions that the kick-off pack already answers — if anyone thought to look at it.
+      </p>
+
+      <h2>Where it gets more interesting over time</h2>
+
+      <p>
+        The real value isn't the static context. It's what happens when you start layering onto it. After the first month, add the sprint retrospective notes. After the second, add the architecture decision records and the data profiling results. Feed in meeting notes from steering committees. Add the change requests and the scope decisions. The agent's understanding of the project deepens as the project progresses — it accumulates context the way an experienced team member does.
+      </p>
+
+      <p>
+        And if you're running multiple projects for the same client, the agent can start building out the relationship map: who the decision-makers are across engagements, what the client's preferences and pain points look like, which escalation paths actually work. That's institutional knowledge that usually lives in a senior partner's head and walks out the door when they move on.
+      </p>
+
+      <h2>The honest trade-offs</h2>
+
+      <p>
+        This isn't magic, and it doesn't replace the delivery fundamentals. An agent built on a kick-off pack is only as good as what you put in — if your RACI is vague, the agent's answers about responsibility will be vague too. If you never update the context, the agent drifts out of date just like the SharePoint document did.
+      </p>
+
+      <p>
+        The difference is that feeding context into a project agent is lower friction than updating a formal document. Dropping a meeting summary into the project knowledge base takes thirty seconds. Updating a Word document, reformatting it, and re-uploading it takes enough effort that people don't do it.
+      </p>
+
+      <p>
+        There are also the usual caveats about sensitive information. A project agent that contains budget details and client names needs to live in a workspace with appropriate access controls — not a shared link anyone can open.
+      </p>
+
+      <h2>The point</h2>
+
+      <p>
+        Every project team already does the hardest part of building a useful AI agent: they create structured context about what they're doing and why. The kick-off pack is that context. The step from "document saved in SharePoint" to "agent that answers project questions" is remarkably small — and the compounding value over a six-month engagement is significant.
+      </p>
+
+      <p>
+        If you're a delivery lead with a kick-off pack template, you're five minutes away from testing this. Start with your next project and see what happens.
+      </p>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article-content p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #333;
+    margin-bottom: 1.25rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.35rem;
+    color: #1B3A5C;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+</style>
