@@ -119,7 +119,7 @@ function renderMessage(text) {
 // ── Component ───────────────────────────────────────────────────────
 
 // *** REPLACE THIS with your actual Cloudflare Worker URL after deploying ***
-const WORKER_URL = "https://maze-agent-proxy.YOUR_SUBDOMAIN.workers.dev";
+const WORKER_URL = "https://maze-agent-proxy.mazeblog.workers.dev";
 
 export default function KickoffAgent() {
   const [messages, setMessages] = useState([]);
